@@ -16,6 +16,7 @@ struct CounterFeature {
         var isLoading = false
         var fact: String?
         var isTimerRunning = false
+        var stopTimerOnDismiss  = true
     }
     
     enum Action { // possible actions contain in the body
@@ -26,6 +27,8 @@ struct CounterFeature {
         case factResponse(String)
         case toggleTimerButtonTapped
         case timerTick
+        case stopTimerOnDismissTapped
+        case dismissView
     }
     
     enum CancelID {
@@ -41,7 +44,7 @@ struct CounterFeature {
             case .decrementButtonTapped:
                 return decrementByOne()
                 
-            case .incrementButtonTapped:
+            case .incrementButtonTapped, .timerTick:
                 return incrementButtonTapped()
                 
             case .setToZero:
@@ -54,22 +57,12 @@ struct CounterFeature {
                 return factResponse(fact: fact)
                 
             case .toggleTimerButtonTapped:
-                state.isTimerRunning.toggle()
-                if state.isTimerRunning {
-                    return .run { send in
-                        while true {
-                            try await Task.sleep(for: .seconds(1))
-                            await send(.timerTick)
-                        }
-                    }
-                    .cancellable(id: CancelID.timer)// set the id for the cancellable action
-                } else {
-                    return .cancel(id: CancelID.timer)
-                }
-            case .timerTick:
-                state.count += 1
-                state.fact = nil
+                return toggleTimerButtonTapped()
+            case .stopTimerOnDismissTapped:
+                state.stopTimerOnDismiss.toggle()
                 return .none
+            case .dismissView:
+                return dismissView()
             }
 //MARK: - Reducer func 
             func decrementByOne() -> Effect<CounterFeature.Action> {
@@ -99,6 +92,35 @@ struct CounterFeature {
                 return .run { [count = state.count] send in
                     try await send(.factResponse(self.numberFact.fetch(count)))
                 }
+            }
+            
+            func toggleTimerButtonTapped() -> Effect<CounterFeature.Action>{
+                state.isTimerRunning.toggle()
+                if state.isTimerRunning {
+                    return .run { send in
+                        while true {
+                            try await Task.sleep(for: .seconds(1))
+                            await send(.timerTick)
+                        }
+                    }
+                    .cancellable(id: CancelID.timer)// set the id for the cancellable action
+                } else {
+                    return .cancel(id: CancelID.timer)
+                }
+            }
+            func stopTimerOnDismissTapped() -> Effect<CounterFeature.Action> {
+                state.stopTimerOnDismiss.toggle()
+                return .none
+            }
+            func dismissView() -> Effect<CounterFeature.Action> {
+                if state.stopTimerOnDismiss {
+                    if state.isTimerRunning {
+                        state.isTimerRunning.toggle()
+                        return .cancel(id: CancelID.timer)
+                    }
+                    return .none
+                }
+                return .none
             }
         }
     }

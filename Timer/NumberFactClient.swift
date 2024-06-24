@@ -38,10 +38,6 @@ extension DependencyValues {
         get { self[NumberFactClient.self] }
         set { self[NumberFactClient.self] = newValue }
     }
-//    var callForFive: NumberFactClient {
-//        get { self[NumberFactClient.self] }
-//        set { self[NumberFactClient.self] = newValue }
-//    }
 }
 
 struct FuncsForNetwork {

@@ -12,6 +12,16 @@ struct CounterView: View {
     let store: StoreOf<CounterFeature>
     var body: some View {
         VStack {
+            
+            Text(store.stopTimerOnDismiss ? "se detiene" : "continua")
+                .font(.title)
+                .padding()
+                .background(store.stopTimerOnDismiss ? Color.green.opacity(0.1) : Color.red.opacity(0.1))
+                .cornerRadius(10)
+                .onTapGesture {
+                    store.send(.stopTimerOnDismissTapped)
+                }
+            
             Text("\(store.count)")
                 .font(.title)
                 .padding()
@@ -72,6 +82,9 @@ struct CounterView: View {
             Spacer()
             
         }.padding(.top)
+            .onDisappear(perform: {
+                store.send(.dismissView)
+            })
     }
 }
 
