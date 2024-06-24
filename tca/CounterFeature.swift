@@ -42,31 +42,16 @@ struct CounterFeature {
                 return decrementByOne()
                 
             case .incrementButtonTapped:
-                state.count += 1
-                state.fact = nil
-                return .none
+                return incrementButtonTapped()
                 
             case .setToZero:
-                state.count = 0
-                state.fact = nil
-                return .none
+                return setToZero()
                 
             case .factButtonTapped:
-                state.fact = nil
-                state.isLoading = true
-                //                return .run { [count = state.count] send in
-                //                    let (data, _) = try await URLSession.shared
-                //                        .data(from: URL(string: "http://numbersapi.com/\(count)")!)
-                //                    let fact = String(decoding: data, as: UTF8.self)
-                //                    await send(.factResponse(fact))
-                //                }
-                return .run { [count = state.count] send in
-                    try await send(.factResponse(self.numberFact.fetch(count)))
-                }
+                return factButtonTapped()
+                
             case let .factResponse(fact):
-                state.fact = fact
-                state.isLoading = false
-                return .none
+                return factResponse(fact: fact)
                 
             case .toggleTimerButtonTapped:
                 state.isTimerRunning.toggle()
@@ -86,11 +71,34 @@ struct CounterFeature {
                 state.fact = nil
                 return .none
             }
-            
+//MARK: - Reducer func 
             func decrementByOne() -> Effect<CounterFeature.Action> {
                 state.count -= 1
                 state.fact = nil
                 return .none
+            }
+            
+            func incrementButtonTapped() -> Effect<CounterFeature.Action> {
+                state.count += 1
+                state.fact = nil
+                return .none
+            }
+            func setToZero() -> Effect<CounterFeature.Action> {
+                state.count = 0
+                state.fact = nil
+                return .none
+            }
+            func factResponse(fact: String) -> Effect<CounterFeature.Action>  {
+                state.fact = fact
+                state.isLoading = false
+                return .none
+            }
+            func factButtonTapped() -> Effect<CounterFeature.Action>  {
+                state.fact = nil
+                state.isLoading = true
+                return .run { [count = state.count] send in
+                    try await send(.factResponse(self.numberFact.fetch(count)))
+                }
             }
         }
     }
