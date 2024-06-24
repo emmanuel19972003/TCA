@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6779E8F62C28C8850072E5E4 /* CounterFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6779E8F52C28C8840072E5E4 /* CounterFeatureTests.swift */; };
+		6779E8F82C28EAAA0072E5E4 /* NumberFactClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6779E8F72C28EAAA0072E5E4 /* NumberFactClient.swift */; };
 		9F1A3B692C248095000C89F7 /* tcaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A3B682C248095000C89F7 /* tcaApp.swift */; };
 		9F1A3B6B2C248095000C89F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A3B6A2C248095000C89F7 /* ContentView.swift */; };
 		9F1A3B6D2C248097000C89F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1A3B6C2C248097000C89F7 /* Assets.xcassets */; };
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		670AB2222C25D0190069393F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6779E8F52C28C8840072E5E4 /* CounterFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeatureTests.swift; sourceTree = "<group>"; };
+		6779E8F72C28EAAA0072E5E4 /* NumberFactClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFactClient.swift; sourceTree = "<group>"; };
 		9F1A3B652C248095000C89F7 /* tca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1A3B682C248095000C89F7 /* tcaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tcaApp.swift; sourceTree = "<group>"; };
 		9F1A3B6A2C248095000C89F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,9 +104,11 @@
 		9F1A3B672C248095000C89F7 /* tca */ = {
 			isa = PBXGroup;
 			children = (
+				670AB2222C25D0190069393F /* Info.plist */,
 				9F1A3B682C248095000C89F7 /* tcaApp.swift */,
 				9F1A3B6A2C248095000C89F7 /* ContentView.swift */,
 				9FD07CC22C24840A005448F6 /* CounterFeature.swift */,
+				6779E8F72C28EAAA0072E5E4 /* NumberFactClient.swift */,
 				9F1A3B6C2C248097000C89F7 /* Assets.xcassets */,
 				9F1A3B6E2C248097000C89F7 /* tca.entitlements */,
 				9F1A3B6F2C248097000C89F7 /* Preview Content */,
@@ -121,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				9F1A3B7A2C248097000C89F7 /* tcaTests.swift */,
+				6779E8F52C28C8840072E5E4 /* CounterFeatureTests.swift */,
 			);
 			path = tcaTests;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 				9FD07CC32C24840A005448F6 /* CounterFeature.swift in Sources */,
 				9F1A3B6B2C248095000C89F7 /* ContentView.swift in Sources */,
 				9F1A3B692C248095000C89F7 /* tcaApp.swift in Sources */,
+				6779E8F82C28EAAA0072E5E4 /* NumberFactClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F1A3B7B2C248097000C89F7 /* tcaTests.swift in Sources */,
+				6779E8F62C28C8850072E5E4 /* CounterFeatureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,10 +442,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tca/Preview Content\"";
-				DEVELOPMENT_TEAM = WUC7ZD3YTG;
+				DEVELOPMENT_TEAM = 495737228M;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tca/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -470,10 +481,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tca/Preview Content\"";
-				DEVELOPMENT_TEAM = WUC7ZD3YTG;
+				DEVELOPMENT_TEAM = 495737228M;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tca/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
