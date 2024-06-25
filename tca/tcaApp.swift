@@ -10,14 +10,30 @@ import ComposableArchitecture
 
 @main
 struct tcaApp: App {
-    static let store = Store(initialState: AppFeature.State()) {
-        AppFeature()
-      }
+//    static let store = Store(initialState: AppFeature.State()) {
+//        AppFeature()
+//      }
+//    var body: some Scene {
+//        WindowGroup {
+//            AppView(
+//                store: tcaApp.store
+//          )
+//        }
+//    }
+    static let store = Store(initialState: ContactsFeature.State(contacts: [
+        Contact(id: UUID(), name: "Dane"),
+        Contact(id: UUID(), name: "Emma"),
+        Contact(id: UUID(), name: "Juanis")
+        
+    ])){
+        ContactsFeature()
+    }
     var body: some Scene {
         WindowGroup {
-            AppView(
+            ContactsView(
                 store: tcaApp.store
           )
         }
     }
+
 }
