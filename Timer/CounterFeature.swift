@@ -7,11 +7,13 @@
 
 import Foundation
 import ComposableArchitecture
+import SwiftUI
 
 @Reducer
 struct CounterFeature {
     @ObservableState
     struct State: Equatable { // sate of the vars
+        var backGroundColor: Color
         var count = 0
         var isLoading = false
         var fact: String?

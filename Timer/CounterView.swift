@@ -12,7 +12,12 @@ struct CounterView: View {
     let store: StoreOf<CounterFeature>
     var body: some View {
         VStack {
-            
+            Text("welcome This is a timer")
+                .font(.title)
+                .padding()
+                .background(store.backGroundColor)
+                .cornerRadius(10)
+
             Text(store.stopTimerOnDismiss ? "se detiene" : "continua")
                 .font(.title)
                 .padding()
@@ -90,7 +95,7 @@ struct CounterView: View {
 
 #Preview {
     CounterView(
-        store: Store(initialState: CounterFeature.State()) {
+        store: Store(initialState: CounterFeature.State(backGroundColor: .white)) {
             CounterFeature()
         }
     )

@@ -11,8 +11,8 @@ import ComposableArchitecture
 @Reducer
 struct AppFeature {// Reducer Composition
     struct State: Equatable {
-        var tab1 = CounterFeature.State()
-        var tab2 = CounterFeature.State()
+        var tab1 = CounterFeature.State(backGroundColor: .white)
+        var tab2 = CounterFeature.State(backGroundColor: .black.opacity(0.2))
     }
     enum Action {
         case tab1(CounterFeature.Action)
