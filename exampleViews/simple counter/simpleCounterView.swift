@@ -55,6 +55,7 @@ struct simpleCounterView: View {
             }
             .onTapGesture {
                 store.send(.delegate(.addToCar(store.count)))
+                store.send(.addToCarButtonTaped)
             }
             ZStack {
                 Rectangle()

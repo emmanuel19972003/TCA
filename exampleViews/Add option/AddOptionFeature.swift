@@ -13,14 +13,16 @@ struct shopItem: Equatable{
     let name = "ipad"
     let image = "ipad.landscape"
     var addedToCar: Bool = false
+    var isFavorite: Bool = false
 }
 
 @Reducer
 struct AddOptionFeature {
     @ObservableState
     struct State: Equatable {
-        let item: shopItem
+        var item: shopItem
         var counter: simpleCounterFeature.State? = simpleCounterFeature.State()
+        var totalCounter: Int = 0
     }
     
     enum Action {
@@ -37,10 +39,10 @@ struct AddOptionFeature {
             case .addToCarTaped:
                 return .none
             case .counter(.delegate(.addToFavorite)):
-                print("action for favorite")
+                state.item.isFavorite.toggle()
                 return .none
-            case let .counter(.delegate(.addToCar(number ))):
-                print(number)
+            case let .counter(.delegate(.addToCar(number))):
+                state.totalCounter = number + state.totalCounter
                 return .none
             case .counter:
                 return .none

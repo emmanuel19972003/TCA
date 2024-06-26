@@ -21,6 +21,7 @@ struct  simpleCounterFeature {
         case increaseButtonTapped
         case decreesButtonTaped
         case changeColorTaped(Color)
+        case addToCarButtonTaped
         case delegate(Delegate)
         enum Delegate: Equatable {
             case addToCar(Int)
@@ -39,6 +40,9 @@ struct  simpleCounterFeature {
             case let .changeColorTaped(color):
                 return changeColorTaped(color)
             case .delegate:
+                return .none
+            case .addToCarButtonTaped:
+                state.count = 0
                 return .none
             }
             

@@ -104,10 +104,8 @@
 		9F0125D32C29E20500D0B887 /* Your first presentation */ = {
 			isa = PBXGroup;
 			children = (
-				9F0125D52C2AF7DF00D0B887 /* ContactsFeature.swift */,
-				9F0125D92C2AF95E00D0B887 /* ContactsView.swift */,
-				9F0125DB2C2AFAD100D0B887 /* AddContactView.swift */,
-				9F0125DD2C2AFAE000D0B887 /* AddContactFeature.swift */,
+				9FBE7F922C2C67AB00709D30 /* contacts */,
+				9FBE7F932C2C67BC00709D30 /* add Contacts */,
 			);
 			path = "Your first presentation";
 			sourceTree = "<group>";
@@ -126,10 +124,8 @@
 		9F0125E12C2B2B9800D0B887 /* exampleViews */ = {
 			isa = PBXGroup;
 			children = (
-				9F0125E82C2B357800D0B887 /* AddOptionView.swift */,
-				9F0125EA2C2B358700D0B887 /* AddOptionFeature.swift */,
-				9F0125E22C2B2EDE00D0B887 /* simpleCounterView.swift */,
-				9F0125E42C2B316400D0B887 /* simpleCounterFeature.swift */,
+				9FBE7F902C2C677D00709D30 /* Add option */,
+				9FBE7F912C2C678E00709D30 /* simple counter */,
 			);
 			path = exampleViews;
 			sourceTree = "<group>";
@@ -194,6 +190,42 @@
 				9F1A3B862C248097000C89F7 /* tcaUITestsLaunchTests.swift */,
 			);
 			path = tcaUITests;
+			sourceTree = "<group>";
+		};
+		9FBE7F902C2C677D00709D30 /* Add option */ = {
+			isa = PBXGroup;
+			children = (
+				9F0125E82C2B357800D0B887 /* AddOptionView.swift */,
+				9F0125EA2C2B358700D0B887 /* AddOptionFeature.swift */,
+			);
+			path = "Add option";
+			sourceTree = "<group>";
+		};
+		9FBE7F912C2C678E00709D30 /* simple counter */ = {
+			isa = PBXGroup;
+			children = (
+				9F0125E22C2B2EDE00D0B887 /* simpleCounterView.swift */,
+				9F0125E42C2B316400D0B887 /* simpleCounterFeature.swift */,
+			);
+			path = "simple counter";
+			sourceTree = "<group>";
+		};
+		9FBE7F922C2C67AB00709D30 /* contacts */ = {
+			isa = PBXGroup;
+			children = (
+				9F0125D52C2AF7DF00D0B887 /* ContactsFeature.swift */,
+				9F0125D92C2AF95E00D0B887 /* ContactsView.swift */,
+			);
+			path = contacts;
+			sourceTree = "<group>";
+		};
+		9FBE7F932C2C67BC00709D30 /* add Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				9F0125DB2C2AFAD100D0B887 /* AddContactView.swift */,
+				9F0125DD2C2AFAE000D0B887 /* AddContactFeature.swift */,
+			);
+			path = "add Contacts";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
