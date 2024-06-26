@@ -6,13 +6,21 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct ContactDetailView: View {
+    let store: StoreOf<ContactDetailFeature>
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+           }
+           .navigationTitle(
+            Text(store.contact.name)
+           )
     }
 }
 
 #Preview {
-    ContactDetailView()
+    ContactDetailView(store: Store(initialState: ContactDetailFeature.State(contact: Contact(id: UUID(), name: "Dane"))){
+        ContactDetailFeature()
+    })
 }

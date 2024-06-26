@@ -21,6 +21,7 @@ struct ContactsFeature {
         // @Presents var addContact: AddContactFeature.State?
         // @Presents var alert: AlertState<Action.Alert>?
         @Presents var destination: Destination.State?
+        var path = StackState<ContactDetailFeature.State>()// navigation stack
         var contacts: IdentifiedArrayOf<Contact> = []
     }
     
@@ -28,7 +29,7 @@ struct ContactsFeature {
         case addButtonTapped
         //        case addContact(PresentationAction<AddContactFeature.Action>)// this allow the parent to know any action perform on the child
         //        case alert(PresentationAction<Alert>)
-        
+        case path(StackAction<ContactDetailFeature.State, ContactDetailFeature.Action>)// action of the stack
         case destination(PresentationAction<Destination.Action>)// replace multiple actions with destinations
         case deleteButtonTapped(id: Contact.ID)
         enum Alert: Equatable {//Delegate
@@ -72,22 +73,27 @@ struct ContactsFeature {
                 return .none
                 
             case .destination:
-                    return .none
+                return .none
             case .deleteButtonTapped(id: let id):
                 state.destination = .alert(
-                          AlertState {
-                            TextState("Are you sure?")
-                          } actions: {
-                            ButtonState(role: .destructive, action: .confirmDeletion(id: id)) {
-                              TextState("Delete")
-                            }
-                          }
-                        )
+                    AlertState {
+                        TextState("Are you sure?")
+                    } actions: {
+                        ButtonState(role: .destructive, action: .confirmDeletion(id: id)) {
+                            TextState("Delete")
+                        }
+                    }
+                )
+                return .none
+            case .path:
                 return .none
             }
             
         }
         .ifLet(\.$destination, action: \.destination) // join alert actions
+        .forEach(\.path, action: \.path) {
+            ContactDetailFeature()
+        }
     }
     
 }
