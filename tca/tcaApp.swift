@@ -11,12 +11,12 @@ import ComposableArchitecture
 enum selectedView {
     case timer
     case contactList
-    //    case examples
+    case examples
 }
 
 @main
 struct tcaApp: App {
-    let mainView: selectedView = .timer
+    let mainView: selectedView = .examples
     
     //    static let store = Store(initialState: ContactsFeature.State(contacts: [
     //        Contact(id: UUID(), name: "Dane"),
@@ -42,13 +42,21 @@ struct tcaApp: App {
                 ContactsView(
                     store: store
                 )
-
+                
             case .timer:
                 let store = Store(initialState: AppFeature.State()) {
                     AppFeature()
                 }
                 
                 AppView(
+                    store: store
+                )
+            case .examples:
+                let store = Store(initialState: AddOptionFeature.State(item: shopItem())) {
+                    AddOptionFeature()
+                }
+                
+                AddOptionView(
                     store: store
                 )
             }

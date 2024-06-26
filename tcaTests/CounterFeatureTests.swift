@@ -16,7 +16,7 @@ import XCTest
 final class CounterFeatureTests: XCTestCase {
     
     func testCounter() async {
-        let store = TestStore(initialState: CounterFeature.State()) {
+        let store = TestStore(initialState: CounterFeature.State(backGroundColor: .black)) {
             CounterFeature()
         }
         
@@ -41,7 +41,7 @@ final class CounterFeatureTests: XCTestCase {
      in this case timeTick
      */
     func testTimer() async {
-        let store = TestStore(initialState: CounterFeature.State()) {
+        let store = TestStore(initialState: CounterFeature.State(backGroundColor: .black)) {
             CounterFeature()
         }
         
@@ -65,7 +65,7 @@ final class CounterFeatureTests: XCTestCase {
     func testTimerUsingClock() async {
         let clock = TestClock()
         
-        let store = TestStore(initialState: CounterFeature.State()) {
+        let store = TestStore(initialState: CounterFeature.State(backGroundColor: .black)) {
             CounterFeature()
         } withDependencies: {
             $0.continuousClock = clock
@@ -84,7 +84,7 @@ final class CounterFeatureTests: XCTestCase {
     }
     
     func testCall() async {
-        let store = TestStore(initialState: CounterFeature.State()) {
+        let store = TestStore(initialState: CounterFeature.State(backGroundColor: .black)) {
             CounterFeature()
         } withDependencies: {
             $0.numberFact.fetch = {"\($0) is my number cool"}

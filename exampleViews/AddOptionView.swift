@@ -9,11 +9,18 @@ import SwiftUI
 import ComposableArchitecture
 
 struct AddOptionView: View {
+    let store: StoreOf<AddOptionFeature>
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("basic view")
+            simpleCounterView(store: store.scope(state: \.counter, action: \.counter)!)
+        }
+        
     }
 }
 
 #Preview {
-    AddOptionView()
+    AddOptionView(store: Store(initialState: AddOptionFeature.State(item: shopItem())){
+        AddOptionFeature()
+    })
 }

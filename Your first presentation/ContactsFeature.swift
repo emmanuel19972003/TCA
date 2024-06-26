@@ -51,7 +51,7 @@ struct ContactsFeature {
             }
             
         }
-        .ifLet(\.$addContact, action: \.addContact) {
+        .ifLet(\.$addContact, action: \.addContact) {//This mix the reducers  
             AddContactFeature()
         }
     }

@@ -11,7 +11,7 @@ import ComposableArchitecture
 struct simpleCounterView: View {
     let store: StoreOf<simpleCounterFeature>
     var body: some View {
-        VStack {
+        VStack(spacing: 15) {
             HStack {
                 Image(systemName: "minus")
                     .resizable()
@@ -42,6 +42,34 @@ struct simpleCounterView: View {
                         store.send(.increaseButtonTapped)
                     }
             }
+            ZStack {
+                Rectangle()
+                    .frame(height: 60)
+                    .cornerRadius(20)
+                    .padding(.horizontal)
+                    .foregroundColor(.blue)
+                    
+                Text("Add to car")
+                    .foregroundColor(.white)
+                    .font(.system(size: 36))
+            }
+            .onTapGesture {
+                store.send(.delegate(.addToCar(store.count)))
+            }
+            ZStack {
+                Rectangle()
+                    .frame(height: 60)
+                    .cornerRadius(20)
+                    .padding(.horizontal)
+                    .foregroundColor(.red)
+                Text("favorite")
+                    .foregroundColor(.white)
+                    .font(.system(size: 36))
+            }
+            .onTapGesture {
+                store.send(.delegate(.addToFavorite))
+            }
+            
             HStack {
                 Rectangle()
                     .cornerRadius(10.0)
