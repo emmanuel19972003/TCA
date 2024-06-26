@@ -22,13 +22,16 @@ struct AddOptionFeature {
     struct State: Equatable {
         var item: shopItem
         var counter: simpleCounterFeature.State? = simpleCounterFeature.State()
+        var counter2: simpleCounterFeature.State? = simpleCounterFeature.State()
         var totalCounter: Int = 0
     }
-    
+
     enum Action {
         case productTaped
         case addToCarTaped
         case counter(simpleCounterFeature.Action)
+        case counter2(simpleCounterFeature.Action)
+
     }
     
     var body: some ReducerOf<Self> {
@@ -46,9 +49,21 @@ struct AddOptionFeature {
                 return .none
             case .counter:
                 return .none
+                
+            case .counter2(.delegate(.addToFavorite)):
+                state.item.isFavorite.toggle()
+                return .none
+            case let .counter2(.delegate(.addToCar(number))):
+                state.totalCounter = number + state.totalCounter
+                return .none
+            case .counter2:
+                return .none
             }
         }
         .ifLet(\.counter, action: \.counter) {
+            simpleCounterFeature()
+        }
+        .ifLet(\.counter2, action: \.counter2) {
             simpleCounterFeature()
         }
     }

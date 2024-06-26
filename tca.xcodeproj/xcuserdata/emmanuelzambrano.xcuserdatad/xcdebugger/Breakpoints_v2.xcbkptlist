@@ -36,21 +36,5 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BC96602D-797F-4926-82A6-C5A45EA19BE3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "exampleViews/Add option/AddOptionFeature.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

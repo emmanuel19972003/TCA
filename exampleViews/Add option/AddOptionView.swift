@@ -32,6 +32,8 @@ struct AddOptionView: View {
                 .foregroundColor(store.item.isFavorite ? .red : .gray)
             simpleCounterView(store: store.scope(state: \.counter, action: \.counter)!)
             Spacer()
+            simpleCounterView(store: store.scope(state: \.counter2, action: \.counter2)!)
+            Spacer()
         }
         
     }

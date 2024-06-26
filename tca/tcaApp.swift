@@ -16,7 +16,7 @@ enum selectedView {
 
 @main
 struct tcaApp: App {
-    let mainView: selectedView = .examples
+    let mainView: selectedView = .contactList
     
     //    static let store = Store(initialState: ContactsFeature.State(contacts: [
     //        Contact(id: UUID(), name: "Dane"),

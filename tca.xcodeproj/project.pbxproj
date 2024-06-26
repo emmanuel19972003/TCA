@@ -27,6 +27,8 @@
 		9F1A3B852C248097000C89F7 /* tcaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A3B842C248097000C89F7 /* tcaUITests.swift */; };
 		9F1A3B872C248097000C89F7 /* tcaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A3B862C248097000C89F7 /* tcaUITestsLaunchTests.swift */; };
 		9F1A3B952C2480F7000C89F7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 9F1A3B942C2480F7000C89F7 /* ComposableArchitecture */; };
+		9F9556002C2CA3CC00FCAE87 /* ContactDetailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9555FF2C2CA3CC00FCAE87 /* ContactDetailFeature.swift */; };
+		9F9556022C2CA42400FCAE87 /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9556012C2CA42400FCAE87 /* ContactDetailView.swift */; };
 		9FD07CC32C24840A005448F6 /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD07CC22C24840A005448F6 /* CounterFeature.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		9F1A3B802C248097000C89F7 /* tcaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tcaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1A3B842C248097000C89F7 /* tcaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tcaUITests.swift; sourceTree = "<group>"; };
 		9F1A3B862C248097000C89F7 /* tcaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tcaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9F9555FF2C2CA3CC00FCAE87 /* ContactDetailFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailFeature.swift; sourceTree = "<group>"; };
+		9F9556012C2CA42400FCAE87 /* ContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
 		9FD07CC22C24840A005448F6 /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,13 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9F0125D32C29E20500D0B887 /* Your first presentation */ = {
+		9F0125D32C29E20500D0B887 /* contactlist */ = {
 			isa = PBXGroup;
 			children = (
+				9F9555FE2C2CA3BF00FCAE87 /* contacDetails */,
 				9FBE7F922C2C67AB00709D30 /* contacts */,
 				9FBE7F932C2C67BC00709D30 /* add Contacts */,
 			);
-			path = "Your first presentation";
+			path = contactlist;
 			sourceTree = "<group>";
 		};
 		9F0125D42C29E21F00D0B887 /* Timer */ = {
@@ -136,7 +141,7 @@
 				9F1A3B672C248095000C89F7 /* tca */,
 				9F0125E12C2B2B9800D0B887 /* exampleViews */,
 				9F0125D42C29E21F00D0B887 /* Timer */,
-				9F0125D32C29E20500D0B887 /* Your first presentation */,
+				9F0125D32C29E20500D0B887 /* contactlist */,
 				9F1A3B792C248097000C89F7 /* tcaTests */,
 				9F1A3B832C248097000C89F7 /* tcaUITests */,
 				9F1A3B662C248095000C89F7 /* Products */,
@@ -190,6 +195,15 @@
 				9F1A3B862C248097000C89F7 /* tcaUITestsLaunchTests.swift */,
 			);
 			path = tcaUITests;
+			sourceTree = "<group>";
+		};
+		9F9555FE2C2CA3BF00FCAE87 /* contacDetails */ = {
+			isa = PBXGroup;
+			children = (
+				9F9555FF2C2CA3CC00FCAE87 /* ContactDetailFeature.swift */,
+				9F9556012C2CA42400FCAE87 /* ContactDetailView.swift */,
+			);
+			path = contacDetails;
 			sourceTree = "<group>";
 		};
 		9FBE7F902C2C677D00709D30 /* Add option */ = {
@@ -368,10 +382,12 @@
 				6779E8FA2C28F4690072E5E4 /* AppFeature.swift in Sources */,
 				9F1A3B6B2C248095000C89F7 /* CounterView.swift in Sources */,
 				9F0125E92C2B357800D0B887 /* AddOptionView.swift in Sources */,
+				9F9556002C2CA3CC00FCAE87 /* ContactDetailFeature.swift in Sources */,
 				9F1A3B692C248095000C89F7 /* tcaApp.swift in Sources */,
 				9F0125DE2C2AFAE000D0B887 /* AddContactFeature.swift in Sources */,
 				9F0125E32C2B2EDE00D0B887 /* simpleCounterView.swift in Sources */,
 				6779E8F82C28EAAA0072E5E4 /* NumberFactClient.swift in Sources */,
+				9F9556022C2CA42400FCAE87 /* ContactDetailView.swift in Sources */,
 				9F0125E52C2B316400D0B887 /* simpleCounterFeature.swift in Sources */,
 				9F0125D62C2AF7DF00D0B887 /* ContactsFeature.swift in Sources */,
 				9F0125DA2C2AF95E00D0B887 /* ContactsView.swift in Sources */,
