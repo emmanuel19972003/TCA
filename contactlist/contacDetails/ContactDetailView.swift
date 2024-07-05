@@ -9,14 +9,17 @@ import SwiftUI
 import ComposableArchitecture
 
 struct ContactDetailView: View {
-    let store: StoreOf<ContactDetailFeature>
-    var body: some View {
-        Form {
-           }
-           .navigationTitle(
-            Text(store.contact.name)
-           )
+  @Bindable var store: StoreOf<ContactDetailFeature>
+  
+  var body: some View {
+    Form {
+      Button("Delete") {
+        store.send(.deleteButtonTapped)
+      }
     }
+    .navigationTitle(Text(store.contact.name))
+    .alert($store.scope(state: \.alert, action: \.alert))
+  }
 }
 
 #Preview {

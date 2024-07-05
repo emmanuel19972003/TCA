@@ -98,4 +98,12 @@ final class CounterFeatureTests: XCTestCase {
             $0.fact = "0 is my number cool"
         }
     }
+    
+    func testFives() async {
+        let store = TestStore(initialState: CounterFeature.State(backGroundColor: .black)) {
+            CounterFeature()
+        } withDependencies: {
+            $0.numberFact.callForFive = {"\($0) is my number cool"}
+        }
+    }
 }

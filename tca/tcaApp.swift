@@ -12,11 +12,12 @@ enum selectedView {
     case timer
     case contactList
     case examples
+    case RandomNumberView
 }
 
 @main
 struct tcaApp: App {
-    let mainView: selectedView = .contactList
+    let mainView: selectedView = .RandomNumberView
     
     //    static let store = Store(initialState: ContactsFeature.State(contacts: [
     //        Contact(id: UUID(), name: "Dane"),
@@ -59,6 +60,8 @@ struct tcaApp: App {
                 AddOptionView(
                     store: store
                 )
+            case .RandomNumberView:
+                RandomNumberView()
             }
         }
     }
